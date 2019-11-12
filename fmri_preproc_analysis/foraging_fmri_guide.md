@@ -1,5 +1,5 @@
-####### foraging project pipeline for fMRI data pre-processing and analysis #######
-####### by Xin Sui, last edited November 2019 #######
+- ####### foraging project pipeline for fMRI data pre-processing and analysis #######
+- ####### by Xin Sui, last edited November 2019 #######
 
 
 # Data Cleaning
