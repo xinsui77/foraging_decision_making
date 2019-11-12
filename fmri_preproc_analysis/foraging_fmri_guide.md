@@ -53,7 +53,7 @@ docker run -it --rm -v [input path]:/data:ro -v [output path]:/out poldracklab/m
 - use `docker stats` at any time to monitor CPU and RAM usage
 
 
-# Preprocessing 
+# Pre-processing 
 
 ## fMRIPrep
 - Run:
