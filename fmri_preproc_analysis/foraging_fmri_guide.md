@@ -53,11 +53,14 @@ docker run -it --rm -v [input path]:/data:ro -v [output path]:/out poldracklab/m
 - use `docker stats` at any time to monitor CPU and RAM usage
 
 
-# Preprocessing using fMRIPrep
+# Preprocessing 
+
+## fMRIPrep
 - Run:
 ```
 time fmriprep-docker /Users/mobbslab/Documents/xin/foraging_fmri_?????? /Users/mobbslab/Documents/xin/foraging_fmri_??????/derivatives participant --nthreads 4 --fs-license-file /Users/mobbslab/Documents/license.txt --fs-no-reconall ; afplay /System/Library/Sounds/Blow.aiff -v 100 |& tee -a foraging_??????_local2threads_CMDoutput.txt
 ```
+
 - Breakdown of the command:
 ```
 time  #to timestamp the process#
