@@ -23,7 +23,7 @@ for d in */ ; do ls -d $d/PosDisp_* ; done
 - Make sure subject data files are in a subfolder called "sourcedata" 
 - Directory hierachy: project_name/sourcedata/subjectID/sessionIdentifier/DICOMfiles
 
-## bidskit
+## BIDS Conversion using bidskit
 - see Github/jmtyszka/bidskit/docs/QuickStart.md (https://github.com/jmtyszka/bidskit/blob/master/docs/QuickStart.md)
 
 ### First Pass Conversion
@@ -44,7 +44,7 @@ for d in */ ; do ls -d $d/PosDisp_* ; done
 % bidskit (with same arguments under the same directory as the first pass)
 ```
 
-### BIDS Quality Control
+## BIDS Quality Control
 - To run quality control on every subject and at the group level:
 ```
 docker run -it --rm -v [input path]:/data:ro -v [output path]:/out poldracklab/mriqc:latest /data /out participant
@@ -53,35 +53,35 @@ docker run -it --rm -v [input path]:/data:ro -v [output path]:/out poldracklab/m
 - use `docker stats` at any time to monitor CPU and RAM usage
 
 
-# Preprocessing Using fMRIPrep
+# Preprocessing using fMRIPrep
 - Run:
 ```
 time fmriprep-docker /Users/mobbslab/Documents/xin/foraging_fmri_?????? /Users/mobbslab/Documents/xin/foraging_fmri_??????/derivatives participant --nthreads 4 --fs-license-file /Users/mobbslab/Documents/license.txt --fs-no-reconall ; afplay /System/Library/Sounds/Blow.aiff -v 100 |& tee -a foraging_??????_local2threads_CMDoutput.txt
 ```
-- breakdowns:
+- Breakdown of the command:
 ```
-time  #to timestamp the process
+time  #to timestamp the process#
 
-fmriprep-docker  #main function
+fmriprep-docker  #main function#
 
-/Users/mobbslab/Documents/xin/foraging_fmri_??????  #first argument: bids_dir, i.e. the root folder of a BIDS valid dataset (sub-XXXXX folders should be found at the top level in this folder)
+/Users/mobbslab/Documents/xin/foraging_fmri_??????  #first argument: bids_dir, i.e. the root folder of a BIDS valid dataset (sub-XXXXX folders should be found at the top level in this folder)#
 
-/Users/mobbslab/Documents/xin/foraging_fmri_??????/derivatives  #second argument: output_dir. i.e. the output path for the outcomes of preprocessing and visual reports
+/Users/mobbslab/Documents/xin/foraging_fmri_??????/derivatives  #second argument: output_dir. i.e. the output path for the outcomes of preprocessing and visual reports#
 
-participant  #third argument: analysis_level, i.e. the processing stage to be run, only “participant” in the case of FMRIPREP (see BIDS-Apps specification)
+participant  #third argument: analysis_level, i.e. the processing stage to be run, only “participant” in the case of FMRIPREP (see BIDS-Apps specification)#
 
---nthreads 4  #flag to limit the maximum number of threads across ALL processes. based on testing results 4 appears to be the optimal on mobbsimaging computer
+--nthreads 4  #flag to limit the maximum number of threads across ALL processes. based on testing results 4 appears to be the optimal on mobbsimaging computer#
 
---fs-license-file /Users/mobbslab/Documents/license.txt  #flag to indicate the path to freesurfer license file
+--fs-license-file /Users/mobbslab/Documents/license.txt  #flag to indicate the path to freesurfer license file#
 
---fs-no-reconall  #flag to turn off fressurfer surface reconstruction (takes too long)
+--fs-no-reconall  #flag to turn off fressurfer surface reconstruction (takes too long)#
 
-; afplay /System/Library/Sounds/Blow.aiff -v 100  #plays notification tone when completed
+; afplay /System/Library/Sounds/Blow.aiff -v 100  #plays notification tone when completed#
 
-|& tee -a foraging_??????_CMDoutput.txt  #saves the command line outputs into a .txt file in /Users/mobbslab/
+|& tee -a foraging_??????_CMDoutput.txt  #saves the command line outputs into a .txt file in /Users/mobbslab/#
 ```
 
-- to monitor and save docker stats on CPU and RAM usage, run:
+- To monitor and save docker stats on CPU and RAM usage, run:
 ```
 docker stats |& tee -a foraging_??????_dockerstats.txt
 ```
@@ -90,7 +90,7 @@ docker stats |& tee -a foraging_??????_dockerstats.txt
 # Single-Voxel Analysis Using SPM
 
 ## 1st Level i.e. Within Subject
-- - I created a template batch file which is included in this github repository
+- I created a template batch file which is included in this github repository
 
 
 ## Second level (means of subject)
