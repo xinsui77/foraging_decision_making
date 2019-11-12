@@ -3,9 +3,12 @@
 
 
 
-# Data cleaning
-- Delete subjects? -- irrelevant for the test analysis (on only one subject)
-- Horos gives multiple structural scans; want to use the last T1w_combEcho and last T2w (not T2w_clinical) and remove the extra T1w and T2w files (otherwise BIDS will identify them as different runs, and fmriprep will carry this through)
+# Data Cleaning
+- Copy data from Horos
+- Delete subjects with incomplete data
+- Delete files for fear localizer task
+- Rearrange folders in case of make-up sessions
+- Re: T1w & T2w - Horos gives multiple structural scans; use the last T1w_combEcho and last T2w (NOT T2w_clinical) and remove the extra T1w and T2w files (otherwise BIDS will identify them as different runs, and fmriprep will carry this through)
 - To check which subjects have all scans:
 ```
 for d in */ ; do ls -d $d/T1w_* ; done
